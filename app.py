@@ -8,8 +8,10 @@ from nltk.stem.porter import PorterStemmer
 
 import nltk
 
-nltk.download('punkt')
-nltk.download('stopwords')
+
+nltk.download("punkt")
+nltk.download("punkt_tab")   
+nltk.download("stopwords")
 
 
 
@@ -37,7 +39,7 @@ def transform_text(text):
     for i in text:
         y.append(ps.stem(i))
 
-    return " ".join(y)   # IMPORTANT: return string, not list
+    return " ".join(y)   
 
 # Load models
 cv = pickle.load(open('vectorizer.pkl', 'rb'))
@@ -56,4 +58,5 @@ if st.button("Predict"):
         st.header("🚨 Spam")
     else:
         st.header("✅ Not Spam")
+
 
